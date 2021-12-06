@@ -4,6 +4,8 @@ import cn.hutool.core.bean.BeanUtil;
 import com.huma.myreactback.Vo.ResponseVo;
 import com.huma.myreactback.Vo.UserVo;
 import com.huma.myreactback.domain.User;
+import com.huma.myreactback.enums.RespCodeEnum;
+import com.huma.myreactback.exception.BusinessException;
 import com.huma.myreactback.req.LoginInReq;
 import com.huma.myreactback.service.UserService;
 import io.swagger.annotations.ApiOperation;
@@ -33,7 +35,11 @@ public class UserController {
     @ApiOperation(value = "用户登录", notes = "用户登录")
     public ResponseVo<UserVo> login(@RequestBody @Valid LoginInReq loginInReq) {
         User user = userService.login(loginInReq.getUserName(),loginInReq.getPassword());
-        return ResponseVo.createSuccess(BeanUtil.copyProperties(user,UserVo.class));
+        if(null ==user){
+            throw new BusinessException(RespCodeEnum.USER_NOT_EXIST);
+        }else{
+            return ResponseVo.createSuccess(BeanUtil.copyProperties(user,UserVo.class));
+        }
 
     }
 }
