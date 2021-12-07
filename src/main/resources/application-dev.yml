@@ -20,3 +20,8 @@ mybatis-plus:
   configuration:
     call-setters-on-nulls: true
     log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+#单Redis节点模式
+redisson:
+  password: 123456
+  singleServerConfig:
+    address: 81.68.242.174:6379

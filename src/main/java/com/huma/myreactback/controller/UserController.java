@@ -8,6 +8,7 @@ import com.huma.myreactback.enums.RespCodeEnum;
 import com.huma.myreactback.exception.BusinessException;
 import com.huma.myreactback.req.LoginInReq;
 import com.huma.myreactback.service.UserService;
+import com.zengtengpeng.operation.RedissonObject;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
@@ -30,6 +31,9 @@ public class UserController {
 
     @Resource
     private UserService userService;
+
+    @Resource
+    private RedissonObject redissonObject;
 
     @PostMapping("login")
     @ApiOperation(value = "用户登录", notes = "用户登录")

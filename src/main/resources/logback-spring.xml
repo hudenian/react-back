@@ -23,9 +23,17 @@
         </encoder>
     </appender>
 
-    <root>
-        <level value="ERROR"/>
-        <appender-ref ref="console"/>
-        <appender-ref ref="fileAppender"/>
-    </root>
+    <springProfile name="test | prod">
+        <root>
+            <level value="ERROR"/>
+            <appender-ref ref="fileAppender"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="dev">
+        <root>
+            <level value="INFO"/>
+            <appender-ref ref="console"/>
+        </root>
+    </springProfile>
 </configuration>

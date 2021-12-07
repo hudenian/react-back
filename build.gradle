@@ -46,6 +46,7 @@ dependencies {
     implementation 'cn.hutool:hutool-all:5.7.15'
     implementation 'com.github.xiaoymin:knife4j-spring-boot-starter:3.0.3'
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
+    implementation 'com.zengtengpeng:redisson-spring-boot-starter:1.0.8'
 }
 
 test {
